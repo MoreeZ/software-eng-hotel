@@ -21,8 +21,10 @@ public class CheckOutRoomForm {
 
 	public void checkOut() throws AppException {
 		/**
-		 * Your code for conducting check-out by using some Control object  
+		 * Your code for conducting check-out by using some Control object
 		 */
+		CheckOutRoomControl checkInRoomControl = getCheckOutRoomControl();
+		checkInRoomControl.checkOut(roomNumber);
 	}
 
 	public String getRoomNumber() {
