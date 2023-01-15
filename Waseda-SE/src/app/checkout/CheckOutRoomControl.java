@@ -5,6 +5,13 @@ package app.checkout;
 
 import java.util.Date;
 
+import app.AppException;
+import app.ManagerFactory;
+import domain.payment.PaymentManager;
+import domain.payment.PaymentException;
+import domain.room.RoomManager;
+import domain.room.RoomException;
+
 /**
  * Control class for Check-out Customer
  * 
@@ -13,20 +20,14 @@ public class CheckOutRoomControl {
 	
 	public void checkOut(String roomNumber) throws AppException {
 		try {
-
 			//Clear room
 			/*
 			 * Your code for clearing room by using domain.room.RoomManager
 			 */
-			RoomManager roomManager = getRoomManager();
-			Date stayingDate = roomManager.removeCustomer(roomNumber);
-			
 			//Consume payment
 			/*
 			 * Your code for consuming payment by using domain.payment.PaymentManager
 			 */
-			PaymentManager paymentManager = getPaymentManager();
-			paymentManager.consumePayment(stayingDate, roomNumber);
 		}
 		catch (RoomException e) {
 			AppException exception = new AppException("Failed to check-out", e);
